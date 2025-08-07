@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ผลลัพธ์จากแบบฟอร์ม</title>
+    <style>
+        nav {
+            background-color: #2a4d69;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+        }
+        nav a {
+            color: white;
+            margin-right: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        body {
+            font-family: Tahoma, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<nav>
+  <a href="ViewMidTerm.html">🏠 หน้าแรก</a>
+  <a href="form.html">📝 แบบฟอร์ม</a>
+  <a href="result.php">📄 แสดงผลลัพธ์</a>
+</nav>
+
+<?php
+    // รับค่าจาก form.php
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $gender = $_POST["gender"];
+    $province = $_POST["province"];
+    $comment = $_POST["comment"];
+    $hobbyList = isset($_POST["hobby"]) ? $_POST["hobby"] : [];
+
+    echo "<h2>ผลลัพธ์จากแบบฟอร์ม</h2>";
+    echo "ชื่อ: " . htmlspecialchars($name) . "<br>";
+    echo "อีเมล: " . htmlspecialchars($email) . "<br>";
+    echo "รหัสผ่าน: " . htmlspecialchars($password) . "<br>";
+    echo "เพศ: " . htmlspecialchars($gender) . "<br>";
+
+    echo "งานอดิเรก: ";
+    if (count($hobbyList) > 0) {
+        echo htmlspecialchars(implode(", ", $hobbyList)) . "<br>";
+    } else {
+        echo "ไม่ได้เลือก<br>";
+    }
+
+    echo "จังหวัด: " . htmlspecialchars($province) . "<br>";
+    echo "ความคิดเห็น: " . nl2br(htmlspecialchars($comment));
+?>
+
+</body>
+</html>

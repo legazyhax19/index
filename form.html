@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ฟอร์มรับข้อมูล</title>
+    <style>
+        nav {
+            background-color: #2a4d69;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+        }
+        nav a {
+            color: white;
+            margin-right: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        body {
+            font-family: Tahoma, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<nav>
+  <a href="ViewMidTerm.html">🏠 หน้าแรก</a>
+  <a href="form.html">📝 แบบฟอร์ม</a>
+  <a href="result.php">📄 แสดงผลลัพธ์</a>
+</nav>
+
+<h2>แบบฟอร์มกรอกข้อมูล</h2>
+<form action="result.php" method="post">
+    <label>ชื่อ:</label>
+    <input type="text" name="name" /><br><br>
+
+    <label>อีเมล:</label>
+    <input type="email" name="email" /><br><br>
+
+    <label>รหัสผ่าน:</label>
+    <input type="password" name="password" /><br><br>
+
+    <label>เพศ:</label>
+    <input type="radio" name="gender" value="ชาย"> ชาย
+    <input type="radio" name="gender" value="หญิง"> หญิง<br><br>
+
+    <label>งานอดิเรก:</label>
+    <input type="checkbox" name="hobby[]" value="อ่านหนังสือ"> อ่านหนังสือ
+    <input type="checkbox" name="hobby[]" value="ออกกำลังกาย"> ออกกำลังกาย<br><br>
+
+    <label>จังหวัด:</label>
+    <select name="province">
+        <option value="กรุงเทพฯ">กรุงเทพฯ</option>
+        <option value="เชียงใหม่">เชียงใหม่</option>
+        <option value="ภูเก็ต">ภูเก็ต</option>
+    </select><br><br>
+
+    <label>ความคิดเห็นเพิ่มเติม:</label><br>
+    <textarea name="comment" rows="4" cols="40"></textarea><br><br>
+
+    <input type="submit" value="ส่งข้อมูล">
+</form>
+
+</body>
+</html>
